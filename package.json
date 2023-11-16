@@ -2,6 +2,13 @@
   "name": "ivanselah-blog",
   "version": "0.1.0",
   "private": true,
+  "description": "about me, blog posted about front end development",
+  "author": "ivanselah[hahmsongmin]<tft0720@gmail.com>",
+  "keywords": [
+    "ivanselah",
+    "resume",
+    "blog"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
