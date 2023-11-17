@@ -12,7 +12,7 @@ export default function Header() {
         <Link href='/about'>About</Link>
         <Link href='/posts'>Posts</Link>
         <Link href='/contact'>Contact</Link>
-        <Link className='flex text-2xl items-center' href='https://github.com/ivanselah' target='_blank'>
+        <Link className='flex text-2xl items-center' href={homeBody.github} target='_blank'>
           <FaGithub />
         </Link>
       </nav>

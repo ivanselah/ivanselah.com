@@ -3,6 +3,7 @@ const homeBody = {
   name: 'hahmsongmin',
   nickName: 'IvanSelah',
   title: '꿈꾸는 프론트엔드 개발자입니다.',
+  github: 'https://github.com/ivanselah',
   about: [
     '비즈니스의 가치를 우선시하는,',
     '끊임없이 노력하고 경험하는,',
