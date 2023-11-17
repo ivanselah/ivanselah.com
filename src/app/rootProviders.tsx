@@ -34,6 +34,7 @@ export default function RootProviders({ children }: Props) {
           ? {
               background: `linear-gradient(136deg,${homeBody.gradientColors})`,
               backgroundSize: '1200% 1200%',
+              overflow: 'hidden',
             }
           : undefined
       }
