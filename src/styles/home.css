@@ -1,0 +1,8 @@
+.bgStyle {
+  background-size: 1200% 1200%;
+  -webkit-animation: BackgroundAnimation 70s ease infinite;
+  -moz-animation: BackgroundAnimation 70s ease infinite;
+  -o-animation: BackgroundAnimation 70s ease infinite;
+  animation: BackgroundAnimation 70s ease infinite;
+  height: 100%;
+}
