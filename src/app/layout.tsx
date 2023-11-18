@@ -13,6 +13,9 @@ const openSans = Open_Sans({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: 'Ivanselah.',
   description: 'About me, blog posted about front end development',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
