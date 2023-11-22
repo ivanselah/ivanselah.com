@@ -1,5 +1,4 @@
 name: Deploy Next.js to S3 for EC2
-
 on:
   workflow_dispatch:
     inputs:
