@@ -57,6 +57,8 @@ Tailwind는 utility CSS이므로 필요에 따라 확장성있게 CSS를 작성�
 
 #### 배포 인프라
 
+![스크린샷 2023-11-22 오후 4 16 55](https://github.com/ivanselah/ivanselah/assets/78192018/b65b1a4e-e216-4d0c-b14d-ffefdb98cb17)
+
 - AWS EC2(Ubuntu)
 - AWS Route 53
 - Reverse proxy(Nginx)
