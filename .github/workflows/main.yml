@@ -36,9 +36,8 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: zip create
-        run: zip -qq -r ./next-build.zip .
-        shell: bash
+      - name: archive tar
+        run: tar cvfz ./next-app.tar.gz *
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -49,7 +48,7 @@ jobs:
 
       - name: Upload to AWS S3
         run: |
-          aws s3 cp --region ${{ secrets.AWS_DEFAULT_REGION }} ./next-build.zip s3://${{ secrets.S3_BUCKET }}/next-build.zip
+          aws s3 cp --region ${{ secrets.AWS_DEFAULT_REGION }} ./next-app.tar.gz s3://${{ secrets.S3_BUCKET }}/next_folder/
 
       - name: Code Deploy
         run: |
@@ -57,4 +56,4 @@ jobs:
             --application-name ${{ secrets.AWS_APPLICATION_NAME }} \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --deployment-group-name ${{ secrets.AWS_DEPLOYMENT_GROUP }} \
-            --s3-location bucket=${{ secrets.S3_BUCKET }},key=next-build.zip,bundleType=zip
+            --s3-location bucket=${{ secrets.S3_BUCKET }},key=next_folder/next-app.tar.gz,bundleType=tgz

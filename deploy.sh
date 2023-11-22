@@ -1,7 +1,4 @@
-REPOSITORY=/home/ubuntu/app
+REPOSITORY=/home/ubuntu/ivanselah-com-bucket-deploy
+
 cd $REPOSITORY
-
-unzip next-build.zip -d /root/ivanselah.com
-
-cd /root/ivanselah.com
 pm2 start --name "ivanselah" yarn -- start -- --port 3060
