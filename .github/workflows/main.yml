@@ -44,8 +44,9 @@ jobs:
           aws s3 sync .next/ s3://${{ secrets.S3_BUCKET }}/.next/ --delete
 
       - name: Code Deploy
-        run: aws deploy create-deployment
-          --application-name ${{ secrets.AWS_APPLICATION_NAME }}
-          --deployment-config-name CodeDeployDefault.OneAtATime
-          --deployment-group-name ${{ secrets.AWS_DEPLOYMENT_GROUP }}
+        run: |
+          aws deploy create-deployment
+          --application-name ${{ secrets.AWS_APPLICATION_NAME }} \
+          --deployment-config-name CodeDeployDefault.OneAtATime \
+          --deployment-group-name ${{ secrets.AWS_DEPLOYMENT_GROUP }} \
           --s3-location bucket=${{ secrets.S3_BUCKET }},key=next,bundleType=directory
