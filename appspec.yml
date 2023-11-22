@@ -3,10 +3,10 @@ os: linux
 
 files:
   - source: /
-    destination: /root/ivanselah.com
+    destination: /home/ubuntu/app
     overwrite: yes
 hooks:
   AfterInstall:
-    - location: ./deploy.sh
+    - location: deploy.sh
       timeout: 60
-      runas: root
+      runas: ubuntu
