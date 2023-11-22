@@ -17,8 +17,9 @@ jobs:
       - name: Check if main branch
         run: |
           if [[ ${{ github.event.inputs.branch }} != 'main' ]]; then
-          echo "This workflow can only be run from the main branch."
-          exit 1
+            echo "This workflow can only be run from the main branch."
+            exit 1
+          fi
 
       - name: Checkout source code
         uses: actions/checkout@v3
