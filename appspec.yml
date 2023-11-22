@@ -3,13 +3,8 @@ os: linux
 
 files:
   - source: /
-    destination: /home/ubuntu/deploy
+    destination: /root/ivanselah.com
     overwrite: yes
-permissions:
-  - object: /
-    owner: ubuntu
-    group: ubuntu
-    mode: 755
 hooks:
   AfterInstall:
     - location: ./deploy.sh
