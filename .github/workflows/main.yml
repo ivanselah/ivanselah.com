@@ -1,6 +1,8 @@
 name: Deploy Next.js to S3 for EC2
 
 on:
+  branches-ignore:
+    - develop
   workflow_dispatch:
     inputs:
       logLevel:
@@ -17,7 +19,7 @@ jobs:
     steps:
       - name: Check if main branch
         run: |
-          if [[ ${{ github.ref }} != 'refs/heads/main' ]]; then
+          if [[ ${{ github.event.inputs.branch }} != 'main' ]]; then
           echo "This workflow can only be run from the main branch."
           exit 1
 
