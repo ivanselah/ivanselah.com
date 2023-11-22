@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Check if main branch
         run: |
-          if [[ "${{ github.event.inputs.branch }}" != 'main' ]]; then
+          if [[ "${{ github.ref }}" != 'main' ]]; then
             echo "This workflow can only be run from the main branch."
             exit 1
           fi
