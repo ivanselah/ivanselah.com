@@ -9,7 +9,6 @@ export default function Header() {
         {`<${homeBody.name} />`}
       </Link>
       <nav className='flex gap-4'>
-        <Link href='/about'>About</Link>
         <Link href='/posts'>Posts</Link>
         <Link href='/contact'>Contact</Link>
         <Link className='flex text-2xl items-center' href={homeBody.github} target='_blank'>
