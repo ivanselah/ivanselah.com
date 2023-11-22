@@ -53,7 +53,7 @@ jobs:
 
       - name: Code Deploy
         run: |
-          aws deploy create-deployment
+          aws deploy create-deployment \
             --application-name ${{ secrets.AWS_APPLICATION_NAME }}
             --deployment-config-name CodeDeployDefault.OneAtATime
             --deployment-group-name ${{ secrets.AWS_DEPLOYMENT_GROUP }}
