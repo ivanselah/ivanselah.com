@@ -1,5 +1,7 @@
 REPOSITORY=/home/ubuntu/ivanselah-com-bucket-deploy
 
 cd $REPOSITORY
-yarn install
-yarn start
+
+YARN_PATH=$(which yarn)
+$YARN_PATH install
+$YARN_PATH start
