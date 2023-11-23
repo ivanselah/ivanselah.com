@@ -4,7 +4,7 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/ivanselah-com-bucket-deploy
-    overwrite: true
+    overwrite: yes
 permissions:
   - object: /home/ubuntu/ivanselah-com-bucket-deploy
     owner: ubuntu
@@ -12,6 +12,6 @@ permissions:
     mode: 755
 hooks:
   AfterInstall:
-    - location: deploy.sh
+    - location: scripts/deploy.sh
       timeout: 60
-      runas: ubuntu
+      runas: root
