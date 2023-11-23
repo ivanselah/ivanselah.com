@@ -36,8 +36,11 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: archive tar
-        run: tar cvfz ./next-app.tar.gz .*
+      - name: Make zip file
+        run: zip -qq -r ./next-app.zip . -x "node_modules/*"
+        # -qq: quit 모드로 실행 (에러나 경고메세지만 출력하도록 함)
+        # -r: 지정된 디렉토리를 재귀적으로 압축 (하위 디렉토리와 파일들 모두 압축)
+        # -x "node_modules/*": node_modules 폴더 제외
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -48,7 +51,7 @@ jobs:
 
       - name: Upload to AWS S3
         run: |
-          aws s3 cp --region ${{ secrets.AWS_DEFAULT_REGION }} ./next-app.tar.gz s3://${{ secrets.S3_BUCKET }}/next_folder/
+          aws s3 cp --region ${{ secrets.AWS_DEFAULT_REGION }} ./next-app.zip s3://${{ secrets.S3_BUCKET }}/next_folder/
 
       - name: Code Deploy
         run: |
@@ -56,4 +59,4 @@ jobs:
             --application-name ${{ secrets.AWS_APPLICATION_NAME }} \
             --deployment-config-name CodeDeployDefault.OneAtATime \
             --deployment-group-name ${{ secrets.AWS_DEPLOYMENT_GROUP }} \
-            --s3-location bucket=${{ secrets.S3_BUCKET }},key=next_folder/next-app.tar.gz,bundleType=tgz
+            --s3-location bucket=${{ secrets.S3_BUCKET }},key=next_folder/next-app.zip,bundleType=zip
