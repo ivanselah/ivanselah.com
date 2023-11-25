@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang='en' suppressHydrationWarning className={openSans.className}>
       <RootProviders>
         <Header />
-        <main className='pt-10 grow'>{children}</main>
+        <main className='w-full mx-auto pt-10 grow'>{children}</main>
       </RootProviders>
     </html>
   );

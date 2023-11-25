@@ -6,5 +6,5 @@ type ContainerProps = {
 };
 
 export default function Container({ className, children }: ContainerProps) {
-  return <div className={CommonUtils.combineClassName('container px-8 mx-auto xl:px-5', className)}>{children}</div>;
+  return <div className={CommonUtils.combineClassName('container px-8 xl:px-5', className)}>{children}</div>;
 }
