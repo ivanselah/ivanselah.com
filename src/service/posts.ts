@@ -21,3 +21,7 @@ export async function getAllPosts(): Promise<Post[]> {
     return [];
   }
 }
+
+export async function getAllPublicPosts(): Promise<Post[]> {
+  return getAllPosts().then((posts) => posts.filter((post) => post.isPublic));
+}

@@ -1,13 +1,13 @@
 import React from 'react';
 import PostsGrid from '@/components/posts/PostsGrid';
-import { getAllPosts } from '@/service/posts';
+import { getAllPublicPosts } from '@/service/posts';
 
 export default async function Posts() {
-  const item = await getAllPosts();
+  const posts = await getAllPublicPosts();
   return (
     <section>
       <h2>Posts</h2>
-      <PostsGrid />
+      <PostsGrid posts={posts} />
     </section>
   );
 }

@@ -4,7 +4,7 @@ import Posts from '@/components/posts/Posts';
 export default function PostsPage() {
   return (
     <>
-      <h1>Posts Page!</h1>
+      <h2 className='text-2xl font-bold my-2'>게시물</h2>
       <Posts />
     </>
   );

@@ -1,5 +1,21 @@
 import React from 'react';
+import { Post } from '@/service/posts';
+import PostCard from '@/components/posts/PostCard';
 
-export default function PostsGrid() {
-  return <div></div>;
+type PostsGridProps = {
+  posts: Post[];
+};
+
+export default function PostsGrid({ posts }: PostsGridProps) {
+  return (
+    <ul className='grid gap-4 grid-cols-1 sm:grid-cols-2'>
+      {posts.map((post) => {
+        return (
+          <li key={post.path}>
+            <PostCard post={post} />
+          </li>
+        );
+      })}
+    </ul>
+  );
 }
