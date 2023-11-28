@@ -1,11 +1,11 @@
 'use client';
+import { useEffect } from 'react';
 
 import { usePathname } from 'next/navigation';
-import { ThemeProvider } from 'next-themes';
+import { ThemeProvider, useTheme } from 'next-themes';
 import { homeBody } from '@/config';
 
 import Footer from '@/components/Footer';
-import { useEffect } from 'react';
 
 type Props = {
   children: React.ReactNode;

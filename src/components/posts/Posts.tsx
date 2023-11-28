@@ -6,7 +6,7 @@ export default async function Posts() {
   const posts = await getAllPublicPosts();
   return (
     <section>
-      <h2>Posts</h2>
+      <h1 className='text-2xl font-bold mb-10'>Featured Posts</h1>
       <PostsGrid posts={posts} />
     </section>
   );

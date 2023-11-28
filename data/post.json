@@ -6,5 +6,13 @@
     "category": "story",
     "path": "my-story-2023-review",
     "isPublic": true
+  },
+  {
+    "title": "빌드 시스템",
+    "description": "개발환경에서 타입검사, 트랜스파일러 비교, 빌드 툴",
+    "date": "2023-11-28",
+    "category": "build",
+    "path": "build-system",
+    "isPublic": true
   }
 ]
