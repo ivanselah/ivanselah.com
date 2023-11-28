@@ -1,11 +1,15 @@
 import React from 'react';
 import Posts from '@/components/posts/Posts';
+import { getAllPublicPosts } from '@/service/posts';
+import FilterablePosts from '@/components/posts/FilterablePosts';
 
-export default function PostsPage() {
+export default async function PostsPage() {
+  const posts = await getAllPublicPosts();
+  const tags = Array.from(new Set(posts.map((post) => post.tag)));
+
   return (
     <>
-      <div className='h-auto'></div>
-      <Posts />
+      <FilterablePosts posts={posts} tags={tags} />
     </>
   );
 }

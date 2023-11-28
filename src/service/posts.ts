@@ -5,7 +5,7 @@ export type Post = {
   title: string;
   description: string;
   date: Date;
-  category: string;
+  tag: string;
   path: string;
   isPublic: boolean;
 };

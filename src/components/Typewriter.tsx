@@ -1,6 +1,6 @@
 'use client';
 
-import { useTypewriter, Typewriter as TypewriterContainer, Cursor } from 'react-simple-typewriter';
+import { Typewriter as TypewriterContainer, Cursor } from 'react-simple-typewriter';
 
 type TypewriterContainerProps = {
   title: string;
@@ -8,11 +8,6 @@ type TypewriterContainerProps = {
 };
 
 export default function Typewriter({ title, about }: TypewriterContainerProps) {
-  const {} = useTypewriter({
-    words: about,
-    loop: 5,
-  });
-
   return (
     <h2 className='w-5/6 text-center text-white flex flex-col gap-10'>
       <span className='text-base sm:text-2xl md:text-3xl'>저는 !</span>
