@@ -8,7 +8,7 @@ type PostsGridProps = {
 
 export default function PostsGrid({ posts }: PostsGridProps) {
   return (
-    <ul className='grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3'>
+    <ul className='min-w-[85%] grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3'>
       {posts.map((post) => {
         return (
           <li key={post.path}>

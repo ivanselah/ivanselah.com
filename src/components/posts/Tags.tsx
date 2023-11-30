@@ -8,7 +8,7 @@ type TagsProps = {
 
 export default function Tags({ tags, selectedTag, onClick }: TagsProps) {
   return (
-    <section className='w-40 text-center p-4'>
+    <section className='hidden sm:block min-w-[15%] text-center p-4'>
       <h2 className='text-lg font-bold border-b border-gray-700 pb-2 mb-3'>태그목록</h2>
       <ul>
         {tags.map((tag) => {

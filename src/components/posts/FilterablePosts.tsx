@@ -21,7 +21,7 @@ export default function FilterablePosts({ posts, tags }: FilterablePostsProps) {
   };
 
   return (
-    <section className='flex m-4'>
+    <section className='flex mt-15'>
       <PostsGrid posts={filteredPosts} />
       <Tags tags={[ALL_POSTS, ...tags]} selectedTag={selectedTag} onClick={onTagClick} />
     </section>

@@ -14,5 +14,13 @@
     "tag": "build",
     "path": "build-system",
     "isPublic": true
+  },
+  {
+    "title": "DOM 이해하기",
+    "description": "DOM, EventLoop 파헤치기",
+    "date": "2023-11-30",
+    "tag": "DOM",
+    "path": "dom-understanding",
+    "isPublic": true
   }
 ]
