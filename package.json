@@ -17,9 +17,7 @@
     "lint": "next lint"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix"
-    ]
+    "*.{ts,tsx}": "eslint --fix"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
