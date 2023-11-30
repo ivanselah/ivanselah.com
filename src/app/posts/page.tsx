@@ -1,5 +1,4 @@
 import React from 'react';
-import Posts from '@/components/posts/Posts';
 import { getAllPublicPosts } from '@/service/posts';
 import FilterablePosts from '@/components/posts/FilterablePosts';
 

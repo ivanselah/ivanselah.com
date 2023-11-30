@@ -2,7 +2,7 @@
 import { useEffect } from 'react';
 
 import { usePathname } from 'next/navigation';
-import { ThemeProvider, useTheme } from 'next-themes';
+import { ThemeProvider } from 'next-themes';
 import { homeBody } from '@/config';
 
 import Footer from '@/components/Footer';

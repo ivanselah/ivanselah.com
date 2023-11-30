@@ -5,7 +5,6 @@ import { Open_Sans } from 'next/font/google';
 import '@/styles/index.css';
 
 import RootProviders from '@/app/rootProviders';
-import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 
 const openSans = Open_Sans({ subsets: ['latin'] });
