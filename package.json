@@ -14,8 +14,7 @@
     "build": "next build",
     "start": "next start -p 3060",
     "prepare": "husky install",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lintStaged": "lint-staged"
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
   },
   "husky": {
     "hooks": {
