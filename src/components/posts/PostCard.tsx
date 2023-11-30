@@ -2,13 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Post } from '@/service/posts';
-import { useTheme } from 'next-themes';
 
 type PostCardProps = {
   post: Post;
 };
 
-export default function PostCard({ post: { title, description, date, tag, path } }: PostCardProps) {
+export default function PostCard({ post: { title, description, date, path } }: PostCardProps) {
   return (
     <Link href={`/posts/${path}`}>
       <article className='dark:border-solid dark:border-2 dark:border-neutral-400 rounded-md overflow-hidden shadow-lg hover:shadow-slate-100 dark:hover:shadow-slate-800'>
