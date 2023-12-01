@@ -3,13 +3,13 @@ import { Post } from '@/service/posts';
 import PostCard from '@/components/posts/PostCard';
 
 type PostsGridProps = {
-  posts: Post[];
+  posts: Post[],
 };
 
 export default function PostsGrid({ posts }: PostsGridProps) {
   return (
-    <ul className='min-w-[85%] grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3'>
-      {posts.map((post) => {
+    <ul className="min-w-[85%] grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+      {posts.map(post => {
         return (
           <li key={post.path}>
             <PostCard post={post} />

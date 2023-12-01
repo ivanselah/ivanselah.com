@@ -12,11 +12,15 @@ export default function ThemeSwitch() {
   };
 
   return (
-    <div className='flex items-center justify-end'>
-      {theme === 'dark' ? <MoonIcon className='w-4 h-4 mr-2' /> : <SunIcon className='w-4 h-4 mr-2' />}
-      <select name='themeSwitch' value={theme} onChange={onThemeChange}>
-        <option value='dark'>Dark</option>
-        <option value='light'>Light</option>
+    <div className="flex items-center justify-end">
+      {theme === 'dark' ? (
+        <MoonIcon className="w-4 h-4 mr-2" />
+      ) : (
+        <SunIcon className="w-4 h-4 mr-2" />
+      )}
+      <select name="themeSwitch" value={theme} onChange={onThemeChange}>
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
       </select>
     </div>
   );

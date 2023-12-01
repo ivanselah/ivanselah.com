@@ -8,7 +8,7 @@ import { homeBody } from '@/config';
 import Footer from '@/components/Footer';
 
 type Props = {
-  children: React.ReactNode;
+  children: React.ReactNode,
 };
 
 export default function RootProviders({ children }: Props) {
@@ -38,10 +38,10 @@ export default function RootProviders({ children }: Props) {
             }
           : undefined
       }
-      className='bgStyle flex flex-col w-full max-w-screen-xl mx-auto p-4 bg-transparent'
+      className="bgStyle flex flex-col w-full max-w-screen-xl mx-auto p-4 bg-transparent"
     >
-      <div id='stars' style={isHome ? undefined : { visibility: 'hidden' }} />
-      <ThemeProvider attribute='class' defaultTheme='dark' enableSystem={false}>
+      <div id="stars" style={isHome ? undefined : { visibility: 'hidden' }} />
+      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         {children}
         {!isHome && <Footer />}
       </ThemeProvider>

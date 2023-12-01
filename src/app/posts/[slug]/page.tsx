@@ -1,14 +1,32 @@
 import React from 'react';
 import { getPostData } from '@/service/posts';
+import MarkdownViewer from '@/components/posts/MarkdownViewer';
+import Image from 'next/image';
 
 type PostPageProps = {
   params: {
-    slug: string;
-  };
+    slug: string,
+  },
 };
 
 export default async function PostPage({ params: { slug } }: PostPageProps) {
-  const post = await getPostData(slug);
+  const { content, path, title, description } = await getPostData(slug);
 
-  return <div>{post.content}</div>;
+  return (
+    <article className="rounded-2xl bg-gray-50 shadow-lg m-4">
+      <Image
+        className="w-full h-1/5 max-h-[500px]"
+        src={`/images/posts/${path}.png`}
+        alt={title}
+        width={500}
+        height={400}
+      />
+      <section className="flex flex-col p-4">
+        <h1 className="text-4xl font-bold">{title}</h1>
+        <p className="text-xl font-bold">{description}</p>
+        <div className="w-60 border-2 border-sky-600 mt-4 mb-8"></div>
+        <MarkdownViewer content={content} />
+      </section>
+    </article>
+  );
 }
