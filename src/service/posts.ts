@@ -10,6 +10,8 @@ export type Post = {
   isPublic: boolean;
 };
 
+export type PostData = Post & { content: string };
+
 export async function getAllPosts(): Promise<Post[]> {
   try {
     const filePath = path.join(process.cwd(), 'data', 'post.json');
@@ -24,4 +26,15 @@ export async function getAllPosts(): Promise<Post[]> {
 
 export async function getAllPublicPosts(): Promise<Post[]> {
   return getAllPosts().then((posts) => posts.filter((post) => post.isPublic));
+}
+
+export async function getPostData(fileName: string): Promise<PostData> {
+  const filePath = path.join(process.cwd(), 'data', 'posts', `${fileName}.md`);
+  const metadata = await getAllPublicPosts() //
+    .then((posts) => posts.find((post) => post.path === fileName));
+  if (!metadata) {
+    throw new Error(`${fileName}에 해당하는 포스트가 없습니다.`);
+  }
+  const content = await readFile(filePath, 'utf8');
+  return { ...metadata, content };
 }
