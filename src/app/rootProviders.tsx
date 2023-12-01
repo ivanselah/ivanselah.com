@@ -1,36 +1,35 @@
 'use client';
 import { useEffect } from 'react';
 
-import { usePathname } from 'next/navigation';
 import { ThemeProvider } from 'next-themes';
 import { homeBody } from '@/config';
 
 import Footer from '@/components/Footer';
+import { useCheckPathname } from '@/hooks/useCheckPathname';
 
 type Props = {
   children: React.ReactNode,
 };
 
 export default function RootProviders({ children }: Props) {
-  const pathname = usePathname();
-  const isHome = pathname === '/';
+  const { isMatch } = useCheckPathname({ targetPathname: '/' });
 
   useEffect(() => {
     const htmlElement = document.querySelector('html');
     if (!htmlElement) {
       return;
     }
-    if (isHome) {
+    if (isMatch) {
       htmlElement.style.overflow = 'hidden';
       return;
     }
     htmlElement.style.overflow = 'auto';
-  }, [isHome]);
+  }, [isMatch]);
 
   return (
     <body
       style={
-        isHome
+        isMatch
           ? {
               background: `linear-gradient(136deg,${homeBody.gradientColors})`,
               backgroundSize: '1200% 1200%',
@@ -38,12 +37,12 @@ export default function RootProviders({ children }: Props) {
             }
           : undefined
       }
-      className="bgStyle flex flex-col w-full max-w-screen-xl mx-auto p-4 bg-transparent"
+      className="bgStyle flex flex-col max-w-screen-xl mx-auto bg-transparent"
     >
-      <div id="stars" style={isHome ? undefined : { visibility: 'hidden' }} />
+      <div id="stars" style={isMatch ? undefined : { visibility: 'hidden' }} />
       <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         {children}
-        {!isHome && <Footer />}
+        {!isMatch && <Footer />}
       </ThemeProvider>
     </body>
   );

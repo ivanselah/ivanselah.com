@@ -13,7 +13,7 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
   const { content, path, title, description } = await getPostData(slug);
 
   return (
-    <article className="rounded-2xl bg-gray-50 shadow-lg m-4">
+    <article className="max-w-[850px] mx-auto rounded-2xl bg-gray-50 shadow-lg m-4">
       <Image
         className="w-full h-1/5 max-h-[500px]"
         src={`/images/posts/${path}.png`}
