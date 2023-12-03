@@ -7,5 +7,15 @@
     "printWidth": 80,
     "parser": "babel",
     "bracketSpacing": true,
-    "arrowParens": "avoid"
+    "arrowParens": "avoid",
+    "overrides": [
+        {
+          "files": "*.json",
+          "options": {
+            "parser": "json",
+            "singleQuote": false,
+            "semi": false
+          }
+        }
+      ]
 }

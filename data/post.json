@@ -2,7 +2,7 @@
   {
     "title": "2023년 리뷰",
     "description": "2023년 한해 동안 배운 기술들",
-    "date": "2023-11-27",
+    "date": "2023년 11월 27일",
     "tag": "story",
     "path": "my-story-2023-review",
     "isPublic": true
@@ -10,7 +10,7 @@
   {
     "title": "빌드 시스템",
     "description": "개발환경에서 타입검사, 트랜스파일러 비교, 빌드 툴",
-    "date": "2023-11-28",
+    "date": "2023년 11월 28일",
     "tag": "build",
     "path": "build-system",
     "isPublic": true
@@ -18,9 +18,9 @@
   {
     "title": "DOM 이해하기",
     "description": "DOM, EventLoop 파헤치기",
-    "date": "2023-11-30",
+    "date": "2023년 11월 30일",
     "tag": "DOM",
-    "path": "dom-understanding",
+    "path": "build-system",
     "isPublic": true
   }
 ]
