@@ -23,7 +23,6 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
       />
       <section className="flex flex-col p-4">
         <h1 className="text-4xl font-bold">{title}</h1>
-        <p className="text-xl font-bold">{description}</p>
         <div className="w-60 border-2 border-sky-600 mt-4 mb-8"></div>
         <MarkdownViewer content={content} />
       </section>

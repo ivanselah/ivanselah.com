@@ -20,7 +20,7 @@
     "description": "DOM, EventLoop 파헤치기",
     "date": "2023년 11월 30일",
     "tags": ["DOM", "Event loop"],
-    "path": "build-system",
+    "path": "dom-understanding",
     "isPublic": true
   }
 ]

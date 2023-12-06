@@ -25,7 +25,7 @@ export default function FilterablePosts({ posts, tags }: FilterablePostsProps) {
   };
 
   return (
-    <section className="flex mt-15">
+    <section className="flex flex-col md:flex-row mt-15">
       <Tags
         tags={[ALL_POSTS, ...tags]}
         selectedTag={selectedTag}
