@@ -6,23 +6,36 @@ type TagsProps = {
   onClick: (tag: string) => void,
 };
 
-export default function Tags({ tags, selectedTag, onClick }: TagsProps) {
+export default function Tags({
+  tags: originTags,
+  selectedTag,
+  onClick,
+}: TagsProps) {
+  const removeDuplicatedTags = Array.from(new Set(originTags));
+  const totalTagsCount = removeDuplicatedTags.length - 1;
+
   return (
-    <section className="hidden sm:block min-w-[15%] text-center p-4">
-      <h2 className="text-lg font-bold border-b border-gray-700 pb-2 mb-3">
-        태그목록
+    <section className="hidden sm:block min-w-[20%] text-center p-4">
+      <h2 className="text-lg text-left font-bold border-b border-gray-400 pb-2 mb-3">
+        태그 목록
       </h2>
       <ul>
-        {tags.map(tag => {
+        {removeDuplicatedTags.map((tag, index) => {
+          const targetTagsCount = originTags.filter(
+            targetTag => targetTag === tag,
+          ).length;
+          const isAllPosts = index === 0;
           return (
             <li
-              className={`cursor-pointer ${
-                tag === selectedTag && 'text-sky-600'
-              }`}
+              className={`text-left truncate leading-7 cursor-pointer ${
+                tag === selectedTag && 'text-teal-500'
+              } ${isAllPosts && 'font-bold'}`}
               key={tag}
               onClick={() => onClick(tag)}
             >
-              {tag}
+              <span>{`${tag} (${
+                isAllPosts ? totalTagsCount : targetTagsCount
+              })`}</span>
             </li>
           );
         })}

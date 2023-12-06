@@ -2,12 +2,12 @@ import path from 'path';
 import { readFile } from 'fs/promises';
 
 export type Post = {
-  title: string;
-  description: string;
-  date: Date;
-  tag: string;
-  path: string;
-  isPublic: boolean;
+  title: string,
+  description: string,
+  date: Date,
+  tags: string[],
+  path: string,
+  isPublic: boolean,
 };
 
 export type PostData = Post & { content: string };
@@ -24,14 +24,16 @@ export async function getAllPosts(): Promise<Post[]> {
   }
 }
 
+export function reduceTags(tags: string[]) {}
+
 export async function getAllPublicPosts(): Promise<Post[]> {
-  return getAllPosts().then((posts) => posts.filter((post) => post.isPublic));
+  return getAllPosts().then(posts => posts.filter(post => post.isPublic));
 }
 
 export async function getPostData(fileName: string): Promise<PostData> {
   const filePath = path.join(process.cwd(), 'data', 'posts', `${fileName}.md`);
   const metadata = await getAllPublicPosts() //
-    .then((posts) => posts.find((post) => post.path === fileName));
+    .then(posts => posts.find(post => post.path === fileName));
   if (!metadata) {
     throw new Error(`${fileName}에 해당하는 포스트가 없습니다.`);
   }

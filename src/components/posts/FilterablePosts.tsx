@@ -17,14 +17,14 @@ export default function FilterablePosts({ posts, tags }: FilterablePostsProps) {
   const filteredPosts =
     selectedTag === ALL_POSTS
       ? posts
-      : posts.filter(post => post.tag === selectedTag);
+      : posts.filter(post => post.tags.includes(selectedTag));
 
   const onTagClick = (tag: string) => {
     setSelectedTag(tag);
   };
 
   return (
-    <section className="flex flex-col mt-15">
+    <section className="flex mt-15">
       <Tags
         tags={[ALL_POSTS, ...tags]}
         selectedTag={selectedTag}
