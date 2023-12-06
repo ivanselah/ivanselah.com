@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Post } from '@/service/posts';
 import PostsGrid from '@/components/posts/PostsGrid';
 import Tags from '@/components/posts/Tags';
+import { useSelectTagStore } from '@/store/store';
 
 type FilterablePostsProps = {
   posts: Post[],
@@ -13,7 +14,7 @@ type FilterablePostsProps = {
 const ALL_POSTS = '전체보기';
 
 export default function FilterablePosts({ posts, tags }: FilterablePostsProps) {
-  const [selectedTag, setSelectedTag] = useState(ALL_POSTS);
+  const { selectedTag, setSelectedTag } = useSelectTagStore();
   const filteredPosts =
     selectedTag === ALL_POSTS
       ? posts

@@ -9,7 +9,7 @@
   },
   {
     "title": "빌드 시스템",
-    "description": "개발환경에서 타입검사, 트랜스파일러 비교, 빌드 툴",
+    "description": "통합 개발 환경에서 코드를 작성하면 어떻게 바로 타입 검사를 하여 나에게 오류를 보여줄 수 있는가? TypeScript에는 타입 검사를 위해 TypeScript Language Service(TLS)라고 하는 서버가 내장되어 있습니다. TypeScript 컴파일러는 이 TLS를 사용하여 타입 검사와 관련된 작업을 수행합니다.",
     "date": "2023년 11월 28일",
     "tags": ["build 시스템 이란 무엇인가", "DOM"],
     "path": "build-system",

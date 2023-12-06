@@ -14,6 +14,7 @@
 
 - Next.js
 - TypeScript
+- Zustand(상태관리)
 - Tailwind CSS
 
 ---
