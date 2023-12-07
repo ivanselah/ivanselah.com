@@ -1,4 +1,4 @@
-const combineClassName = (...className: string[]) => {
+const combineClassName = <T = string | undefined>(...className: T[]) => {
   return className.filter(Boolean).join(' ');
 };
 
