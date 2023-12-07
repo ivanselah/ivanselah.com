@@ -23,7 +23,11 @@ export default function Header() {
           {`<${homeBody.name} />`}
         </Link>
         <nav className="flex items-center gap-3 md:gap-5 max-[360px]:text-xs text-sm md:text-xl">
-          <a href="https:about.ivanselah.com" target="_blank">
+          <a
+            href="https://about.ivanselah.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             About
           </a>
           <Link href="/posts">Blog</Link>
