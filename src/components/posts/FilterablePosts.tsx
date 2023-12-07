@@ -3,7 +3,7 @@
 import React from 'react';
 import { Post } from '@/service/posts';
 import PostsGrid from '@/components/posts/PostsGrid';
-import Tags from '@/components/posts/Tags';
+import PostsTags from '@/components/posts/PostsTags';
 import { useSelectTagStore } from '@/store/store';
 
 type FilterablePostsProps = {
@@ -26,7 +26,7 @@ export default function FilterablePosts({ posts, tags }: FilterablePostsProps) {
 
   return (
     <section className="flex flex-col md:flex-row mt-15">
-      <Tags
+      <PostsTags
         tags={[ALL_POSTS, ...tags]}
         selectedTag={selectedTag}
         onClick={onTagClick}

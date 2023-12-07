@@ -19,8 +19,10 @@ export default function PostCard({
       <Link href={`/posts/${path}`}>
         <article>
           <div className="flex flex-col p-4">
-            <h3 className="text-xl font-bold text-left mb-4">{title}</h3>
-            <p className="w-full truncate">{description}</p>
+            <h3 className="text-xl max-sm:text-sm font-bold text-left mb-4">
+              {title}
+            </h3>
+            <p className="w-full max-sm:text-sm truncate">{description}</p>
           </div>
         </article>
       </Link>
@@ -36,7 +38,9 @@ export default function PostCard({
         ))}
       </ul>
       <div className="w-full h-full border-t-2 border-neutral-100 dark:border-neutral-800 mt-5 p-3 text-center">
-        <time className="block text-left pl-1">{date.toString()}</time>
+        <time className="block text-left pl-1 max-sm:text-sm">
+          {date.toString()}
+        </time>
       </div>
     </section>
   );
