@@ -18,12 +18,15 @@ export default function Header() {
           : 'bg-neutral-100/[0.8] shadow-md dark:bg-neutral-900/[0.8]',
       )}
     >
-      <div className="max-w-[1300px] mx-auto flex justify-between p-4">
-        <Link href="/" className="text-sm sm:text-xl lg:text-2xl">
+      <div className="max-w-[1300px] mx-auto flex justify-between items-center p-4 max-[360px]:p-2">
+        <Link href="/" className="max-[360px]:text-xs text-sm md:text-xl">
           {`<${homeBody.name} />`}
         </Link>
-        <nav className="flex gap-4 text-sm sm:text-xl lg:text-2xl">
-          <Link href="/posts">Posts</Link>
+        <nav className="flex items-center gap-3 md:gap-5 max-[360px]:text-xs text-sm md:text-xl">
+          <a href="https:about.ivanselah.com" target="_blank">
+            About
+          </a>
+          <Link href="/posts">Blog</Link>
           <Link href="/contact">Contact</Link>
           <Link
             className="flex text-2xl items-center"

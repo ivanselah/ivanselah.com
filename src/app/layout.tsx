@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 
-import { Open_Sans } from 'next/font/google';
+import { Noto_Sans_KR } from 'next/font/google';
 
 import '@/styles/index.css';
 
 import RootProviders from '@/app/rootProviders';
 import Header from '@/components/Header';
 
-const openSans = Open_Sans({ subsets: ['latin'] });
+const notoSansKR = Noto_Sans_KR({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Ivanselah.',
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode,
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className={openSans.className}>
+    <html lang="en" suppressHydrationWarning className={notoSansKR.className}>
       <RootProviders>
         <Header />
         <main className="w-full mx-auto pt-16 md:pt-24 lg:pt-32 grow">
