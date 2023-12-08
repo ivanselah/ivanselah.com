@@ -3,7 +3,7 @@ import { Post } from '@/service/posts';
 import PostCard from '@/components/posts/PostCard';
 
 type PostsGridProps = {
-  posts: Post[],
+  posts: Post[];
 };
 
 export default function PostsGrid({ posts }: PostsGridProps) {

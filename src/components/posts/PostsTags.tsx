@@ -1,29 +1,21 @@
 import React from 'react';
 
 type PostsTagsProps = {
-  tags: string[],
-  selectedTag: string,
-  onClick: (tag: string) => void,
+  tags: string[];
+  selectedTag: string;
+  onClick: (tag: string) => void;
 };
 
-export default function PostsTags({
-  tags: originTags,
-  selectedTag,
-  onClick,
-}: PostsTagsProps) {
+export default function PostsTags({ tags: originTags, selectedTag, onClick }: PostsTagsProps) {
   const removeDuplicatedTags = Array.from(new Set(originTags));
   const totalTagsCount = removeDuplicatedTags.length - 1;
 
   return (
     <section className="min-w-[100%] md:min-w-[20%] text-center p-4">
-      <h2 className="text-lg max-md:text-sm text-left font-bold border-b border-gray-400 pb-2 mb-3">
-        태그 목록
-      </h2>
+      <h2 className="text-lg max-md:text-sm text-left font-bold border-b border-gray-400 pb-2 mb-3">태그 목록</h2>
       <ul className="flex flex-row md:flex-col max-md:overflow-x-scroll max-md:mb-1 max-md:pb-4">
         {removeDuplicatedTags.map((tag, index) => {
-          const targetTagsCount = originTags.filter(
-            targetTag => targetTag === tag,
-          ).length;
+          const targetTagsCount = originTags.filter(targetTag => targetTag === tag).length;
           const isAllPosts = index === 0;
           return (
             <li
@@ -33,9 +25,7 @@ export default function PostsTags({
               key={tag}
               onClick={() => onClick(tag)}
             >
-              <span className="max-md:text-sm">{`${tag} (${
-                isAllPosts ? totalTagsCount : targetTagsCount
-              })`}</span>
+              <span className="max-md:text-sm">{`${tag} (${isAllPosts ? totalTagsCount : targetTagsCount})`}</span>
             </li>
           );
         })}

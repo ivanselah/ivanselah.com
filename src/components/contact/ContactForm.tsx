@@ -1,20 +1,37 @@
 'use client';
 
-import React, { ChangeEvent, FormEvent } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { GiPositionMarker } from 'react-icons/gi';
 import { MdOutlineMail } from 'react-icons/md';
 import { useContactFormDataStore } from '@/store/store';
+import ContactBanner, { ContactBannerProps } from '@/components/contact/ContactBanner';
+import { sendContactEmail } from '@/service/contact';
+
+const INIT_CONTACT_BANNER_DATA: ContactBannerProps = {
+  state: null,
+  message: '',
+};
 
 export default function ContactForm() {
-  const { contactFormData, setContactFormData } = useContactFormDataStore();
+  const [contactBannerData, setContactBannerData] = useState<ContactBannerProps>(INIT_CONTACT_BANNER_DATA);
+  const { contactFormData, setContactFormData, resetContactFormData } = useContactFormDataStore();
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    sendContactEmail(contactFormData) //
+      .then(() => {
+        setContactBannerData({ state: 'success', message: '메일을 성공적으로 보냈습니다.' });
+        resetContactFormData();
+      })
+      .catch(() => {
+        setContactBannerData({ state: 'failure', message: '메일전송에 실패했습니다. 다시 시도해 주세요.' });
+      })
+      .finally(() => {
+        setTimeout(() => setContactBannerData(INIT_CONTACT_BANNER_DATA), 3000);
+      });
   };
 
-  const onInputChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
+  const onInputChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
     setContactFormData(name, value);
   };
@@ -33,6 +50,7 @@ export default function ContactForm() {
           <MdOutlineMail />
           <span className="text-sm">tft0720@gmail.com</span>
         </div>
+        <ContactBanner state={contactBannerData.state} message={contactBannerData.message} />
       </div>
       <form className="w-full flex gap-5 flex-col" onSubmit={onSubmit}>
         <input
@@ -65,10 +83,7 @@ export default function ContactForm() {
           value={contactFormData.message}
           onChange={onInputChange}
         />
-        <button
-          type="submit"
-          className="bg-neutral-800 p-3 rounded-md text-neutral-300 max-md:text-sm"
-        >
+        <button type="submit" className="bg-neutral-800 p-3 rounded-md text-neutral-300 max-md:text-sm">
           Send Message
         </button>
       </form>

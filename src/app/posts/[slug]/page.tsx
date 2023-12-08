@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 type PostPageProps = {
   params: {
-    slug: string,
-  },
+    slug: string;
+  };
 };
 
 export default async function PostPage({ params: { slug } }: PostPageProps) {

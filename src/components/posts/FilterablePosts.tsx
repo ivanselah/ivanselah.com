@@ -7,18 +7,15 @@ import PostsTags from '@/components/posts/PostsTags';
 import { useSelectTagStore } from '@/store/store';
 
 type FilterablePostsProps = {
-  posts: Post[],
-  tags: string[],
+  posts: Post[];
+  tags: string[];
 };
 
 const ALL_POSTS = '전체보기';
 
 export default function FilterablePosts({ posts, tags }: FilterablePostsProps) {
   const { selectedTag, setSelectedTag } = useSelectTagStore();
-  const filteredPosts =
-    selectedTag === ALL_POSTS
-      ? posts
-      : posts.filter(post => post.tags.includes(selectedTag));
+  const filteredPosts = selectedTag === ALL_POSTS ? posts : posts.filter(post => post.tags.includes(selectedTag));
 
   const onTagClick = (tag: string) => {
     setSelectedTag(tag);
@@ -26,11 +23,7 @@ export default function FilterablePosts({ posts, tags }: FilterablePostsProps) {
 
   return (
     <section className="flex flex-col md:flex-row mt-15">
-      <PostsTags
-        tags={[ALL_POSTS, ...tags]}
-        selectedTag={selectedTag}
-        onClick={onTagClick}
-      />
+      <PostsTags tags={[ALL_POSTS, ...tags]} selectedTag={selectedTag} onClick={onTagClick} />
       <PostsGrid posts={filteredPosts} />
     </section>
   );

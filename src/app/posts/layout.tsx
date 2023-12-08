@@ -1,7 +1,7 @@
 import React from 'react';
 
 type PostslayoutProps = {
-  children: React.ReactNode,
+  children: React.ReactNode;
 };
 
 export default function Postslayout({ children }: PostslayoutProps) {

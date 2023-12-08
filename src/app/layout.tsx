@@ -17,18 +17,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode,
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning className={notoSansKR.className}>
       <RootProviders>
         <Header />
-        <main className="w-full mx-auto pt-16 md:pt-24 lg:pt-32 grow">
-          {children}
-        </main>
+        <main className="w-full mx-auto pt-16 md:pt-24 lg:pt-32 grow">{children}</main>
       </RootProviders>
     </html>
   );

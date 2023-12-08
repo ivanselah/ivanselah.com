@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { useCheckPathname } from '@/hooks/useCheckPathname';
 
 type Props = {
-  children: React.ReactNode,
+  children: React.ReactNode;
 };
 
 export default function RootProviders({ children }: Props) {

@@ -4,8 +4,7 @@
     "useTabs": false,
     "tabWidth": 2,
     "trailingComma": "all",
-    "printWidth": 80,
-    "parser": "babel",
+    "printWidth": 120,
     "bracketSpacing": true,
     "arrowParens": "avoid",
     "overrides": [
