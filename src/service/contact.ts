@@ -1,8 +1,4 @@
-type EmailContactData = {
-  fromEmail: string;
-  title: string;
-  message: string;
-};
+import { EmailContactData } from '@/service/email';
 
 export async function sendContactEmail(emailContactData: EmailContactData) {
   const response = await fetch('/api/contact', {
@@ -12,10 +8,9 @@ export async function sendContactEmail(emailContactData: EmailContactData) {
       'Content-Type': 'application/json',
     },
   });
-
   const data = await response.json();
   if (!response.ok) {
-    throw new Error('Uknown Server Error');
+    throw new Error(data.message || 'Uknown Server Error');
   }
   return data;
 }

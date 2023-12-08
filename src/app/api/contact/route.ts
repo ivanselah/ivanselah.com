@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+import { sendEmail } from '@/service/email';
 
 const bodySchema = yup.object().shape({
   fromEmail: yup.string().email().required(),
@@ -7,8 +8,15 @@ const bodySchema = yup.object().shape({
 });
 
 export async function POST(request: Request) {
-  if (!bodySchema.isValidSync(request.body)) {
-    return new Response('Invalid format, Please try check.', { status: 400 });
+  const body = await request.json();
+  if (!bodySchema.isValidSync(body)) {
+    return new Response(JSON.stringify({ message: 'Invalid format, Please try check.' }), { status: 400 });
   }
-  const { fromEmail, title, message } = request.body;
+  return sendEmail(body) //
+    .then(() => {
+      return new Response(JSON.stringify({ message: '메일을 성공적으로 보냈습니다.' }), { status: 200 });
+    })
+    .catch(() => {
+      return new Response(JSON.stringify({ message: '메일 전송에 실패하였습니다.' }), { status: 500 });
+    });
 }
