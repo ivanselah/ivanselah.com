@@ -3,3 +3,13 @@ export interface SelectedTagStore {
   setSelectedTag: (tag: string) => void;
   resetSelectedTag: () => void;
 }
+
+export interface ContactFormDataStore {
+  contactFormData: {
+    fromEmail: string,
+    title: string,
+    message: string,
+  };
+  setContactFormData: (name: string, value: string) => void;
+  resetContactFormData: () => void;
+}
