@@ -1,18 +1,19 @@
 import path from 'path';
 import { readFile } from 'fs/promises';
+import { cache } from 'react';
 
 export type Post = {
-  title: string,
-  description: string,
-  date: Date,
-  tags: string[],
-  path: string,
-  isPublic: boolean,
+  title: string;
+  description: string;
+  date: Date;
+  tags: string[];
+  path: string;
+  isPublic: boolean;
 };
 
 export type PostData = Post & { content: string };
 
-export async function getAllPosts(): Promise<Post[]> {
+export const getAllPosts = cache(async () => {
   try {
     const filePath = path.join(process.cwd(), 'data', 'post.json');
     const postsData = await readFile(filePath, 'utf8');
@@ -22,9 +23,7 @@ export async function getAllPosts(): Promise<Post[]> {
   } catch (error) {
     return [];
   }
-}
-
-export function reduceTags(tags: string[]) {}
+});
 
 export async function getAllPublicPosts(): Promise<Post[]> {
   return getAllPosts().then(posts => posts.filter(post => post.isPublic));

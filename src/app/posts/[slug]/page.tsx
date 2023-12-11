@@ -1,5 +1,5 @@
 import React from 'react';
-import { getPostData } from '@/service/posts';
+import { getAllPublicPosts, getPostData } from '@/service/posts';
 import MarkdownViewer from '@/components/posts/MarkdownViewer';
 import Image from 'next/image';
 
@@ -36,4 +36,11 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
       </section>
     </article>
   );
+}
+
+export async function generateStaticParams() {
+  const posts = await getAllPublicPosts();
+  return posts.map(post => ({
+    slug: post.path,
+  }));
 }
