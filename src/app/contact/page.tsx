@@ -1,5 +1,11 @@
 import React from 'react';
 import ContactForm from '@/components/contact/ContactForm';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Contact',
+  description: 'Ivanselah에게 메일로 연락하기',
+};
 
 export default function ContactPage() {
   return (

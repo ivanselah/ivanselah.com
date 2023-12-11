@@ -9,6 +9,14 @@ type PostPageProps = {
   };
 };
 
+export async function generateMetadata({ params: { slug } }: PostPageProps) {
+  const { title, description } = await getPostData(slug);
+  return {
+    title,
+    description,
+  };
+}
+
 export default async function PostPage({ params: { slug } }: PostPageProps) {
   const { content, path, title, description } = await getPostData(slug);
 
