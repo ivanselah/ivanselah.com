@@ -2,6 +2,7 @@ import React from 'react';
 import { getAllPublicPosts, getPostData } from '@/service/posts';
 import MarkdownViewer from '@/components/posts/MarkdownViewer';
 import Image from 'next/image';
+import PreNextPostCard from '@/components/posts/PreNextPostCard';
 
 type PostPageProps = {
   params: {
@@ -18,7 +19,7 @@ export async function generateMetadata({ params: { slug } }: PostPageProps) {
 }
 
 export default async function PostPage({ params: { slug } }: PostPageProps) {
-  const { content, path, title, description } = await getPostData(slug);
+  const { content, path, title, description, prevPost, nextPost } = await getPostData(slug);
 
   return (
     <article className="max-w-[850px] mx-auto  m-4">
@@ -33,6 +34,10 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
         <h1 className="text-4xl font-bold">{title}</h1>
         <div className="w-60 border-2 border-sky-600 mt-4 mb-8"></div>
         <MarkdownViewer content={content} />
+      </section>
+      <section className="flex shadow-md">
+        {prevPost && <PreNextPostCard post={prevPost} type="prev" />}
+        {nextPost && <PreNextPostCard post={nextPost} type="next" />}
       </section>
     </article>
   );

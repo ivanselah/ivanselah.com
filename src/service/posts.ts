@@ -11,7 +11,7 @@ export type Post = {
   isPublic: boolean;
 };
 
-export type PostData = Post & { content: string };
+export type PostData = Post & { content: string; prevPost: Post | null; nextPost: Post | null };
 
 export const getAllPosts = cache(async () => {
   try {
@@ -31,11 +31,15 @@ export async function getAllPublicPosts(): Promise<Post[]> {
 
 export async function getPostData(fileName: string): Promise<PostData> {
   const filePath = path.join(process.cwd(), 'data', 'posts', `${fileName}.md`);
-  const metadata = await getAllPublicPosts() //
-    .then(posts => posts.find(post => post.path === fileName));
+  const posts = await getAllPublicPosts(); //
+  const metadata = posts.find(post => post.path === fileName);
   if (!metadata) {
     throw new Error(`${fileName}에 해당하는 포스트가 없습니다.`);
   }
+
+  const index = posts.indexOf(metadata);
+  const prevPost = index < posts.length ? posts[index + 1] : null;
+  const nextPost = index > 0 ? posts[index - 1] : null;
   const content = await readFile(filePath, 'utf8');
-  return { ...metadata, content };
+  return { ...metadata, content, prevPost, nextPost };
 }
