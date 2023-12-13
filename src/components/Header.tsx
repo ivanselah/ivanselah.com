@@ -13,7 +13,7 @@ export default function Header() {
     <header
       className={CommonUtils.combineClassName(
         'fixed top-0 left-0 right-0',
-        isMatch ? 'bg-transparent' : 'bg-neutral-100/[0.1] shadow-sm dark:bg-neutral-900/[0.8]',
+        isMatch ? 'bg-transparent' : 'bg-neutral-100/[0.8] shadow-sm dark:bg-neutral-900/[0.8]',
       )}
     >
       <div className="max-w-[1300px] mx-auto flex justify-between items-center p-4 max-[360px]:p-2">

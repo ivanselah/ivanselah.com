@@ -36,10 +36,9 @@ export async function getPostData(fileName: string): Promise<PostData> {
   if (!metadata) {
     throw new Error(`${fileName}에 해당하는 포스트가 없습니다.`);
   }
-
-  const index = posts.indexOf(metadata);
-  const prevPost = index < posts.length ? posts[index + 1] : null;
-  const nextPost = index > 0 ? posts[index - 1] : null;
+  const targetIndex = posts.indexOf(metadata);
+  const prevPost = targetIndex < posts.length ? posts[targetIndex + 1] ?? null : null;
+  const nextPost = targetIndex > 0 ? posts[targetIndex - 1] ?? null : null;
   const content = await readFile(filePath, 'utf8');
   return { ...metadata, content, prevPost, nextPost };
 }

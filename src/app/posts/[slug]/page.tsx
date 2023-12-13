@@ -20,7 +20,7 @@ export async function generateMetadata({ params: { slug } }: PostPageProps) {
 
 export default async function PostPage({ params: { slug } }: PostPageProps) {
   const { content, path, title, description, prevPost, nextPost } = await getPostData(slug);
-
+  console.log('prevPost', prevPost);
   return (
     <article className="max-w-[850px] mx-auto  m-4">
       <Image
@@ -35,9 +35,9 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
         <div className="w-60 border-2 border-sky-600 mt-4 mb-8" />
         <MarkdownViewer content={content} />
       </section>
-      <section className="flex shadow-md">
-        {prevPost && <PreNextPostCard post={prevPost} type="prev" />}
-        {nextPost && <PreNextPostCard post={nextPost} type="next" />}
+      <section className="w-full h-32 py-7 max-md:flex-col md:relative">
+        {prevPost && <PreNextPostCard post={prevPost} type="prev" isLastPost={nextPost === null} />}
+        {nextPost && <PreNextPostCard post={nextPost} type="next" isLastPost={prevPost === null} />}
       </section>
     </article>
   );
