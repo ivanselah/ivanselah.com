@@ -39,16 +39,17 @@ export default function ContactForm() {
   return (
     <section className="flex max-md:flex-col justify-between">
       <div className="w-full text-neutral-700 dark:text-neutral-400 mb-3">
-        <div className="text-xl mb-2 max-md:text-sm">
-          <h3>Hahm Song Min</h3>
+        <div className="text-xl mb-5 max-md:text-sm">
+          <h3 className="text-neutral-950 dark:text-neutral-100">Hahm Song Min</h3>
+          <span className="text-sm text-teal-500">Front-End Developer.</span>
         </div>
         <div className="flex items-center gap-1 text-xl max-md:text-sm mb-2">
           <GiPositionMarker />
-          <span className="text-sm">Seoul, Republic of Korea</span>
+          <span className="text-sm max-md:text-xs">Seoul, Republic of Korea</span>
         </div>
         <div className="flex items-center gap-1 text-xl max-md:text-sm mb-2">
           <MdOutlineMail />
-          <span className="text-sm">tft0720@gmail.com</span>
+          <span className="text-sm max-md:text-xs">tft0720@gmail.com</span>
         </div>
         <ContactBanner state={contactBannerData.state} message={contactBannerData.message} />
       </div>
