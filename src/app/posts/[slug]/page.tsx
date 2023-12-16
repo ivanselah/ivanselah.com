@@ -23,7 +23,7 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
   const { content, path, title, prevPost, nextPost } = await getPostData(slug);
   return (
     <>
-      <LikeHeart />
+      <LikeHeart slug={slug} />
       <article className="max-w-[850px] mx-auto m-4">
         <Image
           className="w-full h-1/5 max-h-[500px] select-none"
