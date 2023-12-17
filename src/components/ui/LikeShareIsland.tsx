@@ -30,8 +30,6 @@ export default function LikeShareIsland({ slug }: LikeShareIslandProps) {
 
   const onShareIconClick = () => {
     copyToClipboard(origin + pathname);
-    // TODO 임시 처리
-    alert('클립보드에 복사되었습니다.');
   };
 
   return (
