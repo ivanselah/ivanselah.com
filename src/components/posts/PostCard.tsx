@@ -14,7 +14,7 @@ export default function PostCard({ post: { title, description, date, path, tags 
 
   return (
     <section className="h-fit dark:border-solid border dark:border dark:border-neutral-400 rounded-md overflow-hidden hover:shadow-lg hover:shadow-neutral-100 dark:hover:shadow-neutral-800">
-      <Link href={`/posts/${path}`}>
+      <Link href={`/posts/${path}`} scroll={false}>
         <article>
           <div className="flex flex-col p-4">
             <h3 className="text-xl max-sm:text-sm font-bold text-left mb-4">{title}</h3>

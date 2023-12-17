@@ -3,7 +3,7 @@ import { getAllPublicPosts, getPostData } from '@/service/posts';
 import MarkdownViewer from '@/components/posts/MarkdownViewer';
 import Image from 'next/image';
 import PreNextPostCard from '@/components/posts/PreNextPostCard';
-import LikeHeart from '@/components/ui/LikeHeart';
+import LikeShareIsland from '@/components/ui/LikeShareIsland';
 
 type PostPageProps = {
   params: {
@@ -23,7 +23,7 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
   const { content, path, title, prevPost, nextPost } = await getPostData(slug);
   return (
     <>
-      <LikeHeart slug={slug} />
+      <LikeShareIsland slug={slug} />
       <article className="max-w-[850px] mx-auto m-4">
         <Image
           className="w-full h-1/5 max-h-[500px] select-none"
