@@ -22,6 +22,8 @@ export default function MarkdownViewer({ content }: MarkdownViewerProps) {
         h2: ({ children }) => <h2 className="dark:text-neutral-200">{children}</h2>,
         h3: ({ children }) => <h3 className="dark:text-neutral-200">{children}</h3>,
         h4: ({ children }) => <h4 className="dark:text-neutral-200">{children}</h4>,
+        li: ({ children }) => <li className="dark:text-neutral-200 max-md:text-sm">{children}</li>,
+        p: ({ children }) => <p className="dark:text-neutral-200 max-md:text-sm">{children}</p>,
         code(props) {
           const { children, className, node, ...rest } = props;
           const match = /language-(\w+)/.exec(className || '');

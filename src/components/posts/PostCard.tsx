@@ -17,12 +17,12 @@ export default function PostCard({ post: { title, description, date, path, tags 
       <Link href={`/posts/${path}`} scroll={false}>
         <article>
           <div className="flex flex-col p-4">
-            <h3 className="text-xl max-sm:text-sm font-bold text-left mb-4">{title}</h3>
+            <h3 className="text-xl max-sm:text-sm font-bold text-left mb-4 truncate">{title}</h3>
             <p className="w-full max-sm:text-sm truncate">{description}</p>
           </div>
         </article>
       </Link>
-      <ul className="flex mt-1 cursor-pointer pl-3">
+      <ul className="pb-2 flex flex-wrap mt-1 cursor-pointer pl-3">
         {tags.map((tag, index) => (
           <li
             key={index}

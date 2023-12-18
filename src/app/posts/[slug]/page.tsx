@@ -4,6 +4,7 @@ import MarkdownViewer from '@/components/posts/MarkdownViewer';
 import Image from 'next/image';
 import PreNextPostCard from '@/components/posts/PreNextPostCard';
 import LikeShareIsland from '@/components/ui/LikeShareIsland';
+import PostImage from '@/components/posts/PostImage';
 
 type PostPageProps = {
   params: {
@@ -21,19 +22,14 @@ export async function generateMetadata({ params: { slug } }: PostPageProps) {
 
 export default async function PostPage({ params: { slug } }: PostPageProps) {
   const { content, path, title, prevPost, nextPost } = await getPostData(slug);
+
   return (
     <>
       <LikeShareIsland slug={slug} />
       <article className="max-w-[850px] mx-auto m-4">
-        <Image
-          className="w-full h-1/5 max-h-[500px] select-none"
-          src={`/images/posts/${path}.png`}
-          alt={title}
-          width={500}
-          height={400}
-        />
+        <PostImage path={path} title={title} />
         <section className="flex flex-col p-4">
-          <h1 className="text-4xl font-bold">{title}</h1>
+          <h1 className="max-md:text-2xl text-4xl font-bold">{title}</h1>
           <div className="w-60 border-2 border-sky-600 mt-4 mb-8" />
           <MarkdownViewer content={content} />
         </section>

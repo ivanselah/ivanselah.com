@@ -26,7 +26,7 @@ export default function PreNextPostCard({ post: { path, title }, type }: PreNext
         {type === 'prev' && <FaArrowLeft className={CommonUtils.combineClassName(ARROW_ICON_CLASS, 'left-4')} />}
         {type === 'next' && <FaArrowRight className={CommonUtils.combineClassName(ARROW_ICON_CLASS, 'right-4')} />}
         <span className="text-xs font-bold">{type === 'prev' ? '이전 포스트' : '다음 포스트'}</span>
-        <h3 className="text-xl max-md:text-base my-1 font-bold truncate">{title}</h3>
+        <h3 className="px-10 text-xl max-md:text-base my-1 font-bold truncate">{title}</h3>
       </div>
     </Link>
   );

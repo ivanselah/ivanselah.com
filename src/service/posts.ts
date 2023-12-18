@@ -1,6 +1,7 @@
 import path from 'path';
 import { readFile } from 'fs/promises';
 import { cache } from 'react';
+import { createReadStream } from 'fs';
 
 export type Post = {
   title: string;

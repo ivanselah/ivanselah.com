@@ -1,6 +1,6 @@
 [
   {
-    "title": "2023년 리뷰",
+    "title": "2023년 리뷰 - 테스트",
     "description": "2023년 한해 동안 배운 기술들",
     "date": "2023년 11월 27일",
     "tags": ["story", "review"],
@@ -8,19 +8,19 @@
     "isPublic": true
   },
   {
-    "title": "빌드 시스템",
-    "description": "통합 개발 환경에서 코드를 작성하면 어떻게 바로 타입 검사를 하여 나에게 오류를 보여줄 수 있는가? TypeScript에는 타입 검사를 위해 TypeScript Language Service(TLS)라고 하는 서버가 내장되어 있습니다. TypeScript 컴파일러는 이 TLS를 사용하여 타입 검사와 관련된 작업을 수행합니다.",
-    "date": "2023년 11월 28일",
-    "tags": ["build 시스템 이란 무엇인가", "DOM"],
-    "path": "build-system",
+    "title": "DOM 이해하기",
+    "description": "DOM은 HTML 태그를 자바스크립트로 제어할 수 있는 자바스크립트 오브젝트 형태로 를 말하여 DOM Tree는 이런 DOM이 어떤 구조로 생성되었는지를 정의하는 것이라고 할 수 있습니다.",
+    "date": "2023년 11월 29일",
+    "tags": ["DOM", "Event loop"],
+    "path": "dom-understanding",
     "isPublic": true
   },
   {
-    "title": "DOM 이해하기",
-    "description": "DOM, EventLoop 파헤치기",
-    "date": "2023년 11월 30일",
-    "tags": ["DOM", "Event loop"],
-    "path": "dom-understanding",
+    "title": "개발환경에서 타입검사",
+    "description": "통합 개발 환경에서 코드를 작성하면 어떻게 바로 타입 검사를 하여 나에게 오류를 보여줄 수 있는가?",
+    "date": "2023년 12월 18일",
+    "tags": ["TLS", "tsc", "VSCode"],
+    "path": "typescript-type-check",
     "isPublic": true
   }
 ]
