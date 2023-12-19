@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 type PostImageProps = {
@@ -10,15 +10,12 @@ type PostImageProps = {
 
 export default function PostImage({ path, title }: PostImageProps) {
   const [isError, setIsError] = useState<boolean>(false);
-
-  if (isError) {
-    return null;
-  }
+  const [fallbackPath] = useState<string>('basic-image');
 
   return (
     <Image
-      className="w-full h-1/5 max-h-[500px] select-none"
-      src={`/images/posts/${path}.png`}
+      className="w-full h-1/5 max-h-[500px] select-none rounded-md"
+      src={`/images/posts/${isError ? fallbackPath : path}.png`}
       alt={title}
       width={500}
       height={400}
