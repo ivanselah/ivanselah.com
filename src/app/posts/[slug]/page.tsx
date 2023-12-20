@@ -3,8 +3,9 @@ import { getAllPublicPosts, getPostData } from '@/service/posts';
 import MarkdownViewer from '@/components/posts/MarkdownViewer';
 import Image from 'next/image';
 import PreNextPostCard from '@/components/posts/PreNextPostCard';
-import LikeShareIsland from '@/components/ui/LikeShareIsland';
+import LikeShareIsland from '@/components/posts/LikeShareIsland';
 import PostImage from '@/components/posts/PostImage';
+import PostComment from '@/components/posts/PostComment';
 
 type PostPageProps = {
   params: {
@@ -38,6 +39,7 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
           {nextPost && <PreNextPostCard post={nextPost} type="next" />}
         </section>
       </article>
+      <PostComment />
     </>
   );
 }
