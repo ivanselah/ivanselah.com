@@ -8,11 +8,13 @@ import { useEffect, useLayoutEffect, useState } from 'react';
 
 export default function Footer() {
   const pathname = usePathname();
+  const [isPostPathMatch, setIsPostPathMatch] = useState<boolean>(false);
   const [isBothPreAndNextButton, setIsBothPreAndNextButton] = useState<boolean>(true);
 
   useEffect(() => {
     const { 1: postPathname } = pathname.split('/');
     const isMatch = postPathname === 'posts';
+    setIsPostPathMatch(isMatch);
     if (!isMatch) {
       return;
     }
@@ -29,6 +31,7 @@ export default function Footer() {
       className={CommonUtils.combineClassName(
         'max-w-screen-xl p-4 mt-10 border-t border-gray-100 dark:border-gray-800',
         isBothPreAndNextButton ? 'max-md:mt-32' : 'max-md:mt-10',
+        !isPostPathMatch && 'max-md:mt-9',
       )}
     >
       <div className="text-center text-sm max-md:text-xs mb-3">
