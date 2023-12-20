@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header
       className={CommonUtils.combineClassName(
-        'fixed top-0 left-0 right-0',
+        'fixed top-0 left-0 right-0 z-10',
         isMatch ? 'bg-transparent' : 'bg-neutral-100/[0.8] shadow-sm dark:bg-neutral-900/[0.8]',
       )}
     >

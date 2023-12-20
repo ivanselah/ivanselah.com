@@ -39,7 +39,7 @@ export default function RootProviders({ children }: Props) {
       }
       className="bgStyle flex flex-col max-w-screen-xl mx-auto bg-transparent"
     >
-      <div id="stars" style={isMatch ? undefined : { visibility: 'hidden' }} />
+      <div id="stars" style={isMatch ? undefined : { display: 'none' }} />
       <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
         {children}
         {!isMatch && <Footer />}

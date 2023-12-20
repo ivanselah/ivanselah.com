@@ -1,6 +1,5 @@
 import { Post } from '@/service/posts';
 import { CommonUtils } from '@/utils/common';
-import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
@@ -16,6 +15,7 @@ export default function PreNextPostCard({ post: { path, title }, type }: PreNext
   return (
     <Link
       href={`/posts/${path}`}
+      id="preNext"
       className={CommonUtils.combineClassName('w-1/2 md:absolute px-3', type === 'prev' ? 'left-0' : 'right-0')}
     >
       <div

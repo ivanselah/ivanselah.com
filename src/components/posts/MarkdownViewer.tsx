@@ -47,7 +47,7 @@ export default function MarkdownViewer({ content }: MarkdownViewerProps) {
             {children}
           </p>
         ),
-        a: ({ children }) => <a className="text-neutral-500 max-md:text-sm cursor-pointer">{children}</a>,
+        a: ({ children }) => <a className="text-neutral-500 max-md:text-sm cursor-pointer break-words">{children}</a>,
         code(props) {
           const { children, className, node, ...rest } = props;
           const match = /language-(\w+)/.exec(className || '');
