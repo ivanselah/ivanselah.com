@@ -1,7 +1,6 @@
 import React from 'react';
 import { getAllPublicPosts, getPostData } from '@/service/posts';
 import MarkdownViewer from '@/components/posts/MarkdownViewer';
-import Image from 'next/image';
 import PreNextPostCard from '@/components/posts/PreNextPostCard';
 import LikeShareIsland from '@/components/posts/LikeShareIsland';
 import PostImage from '@/components/posts/PostImage';

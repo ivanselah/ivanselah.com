@@ -1,6 +1,6 @@
 const homeBody = {
   gradientColors: '#4484ce, #1ad7c0, #ff9b11, #9b59b6, #ff7f7f, #ecf0f1',
-  name: 'hahmsongmin',
+  name: 'SONGMIN',
   nickName: 'IvanSelah',
   title: '꿈꾸는 프론트엔드 개발자입니다.',
   github: 'https://github.com/ivanselah',

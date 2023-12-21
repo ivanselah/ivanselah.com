@@ -38,14 +38,12 @@ export default function MarkdownViewer({ content }: MarkdownViewerProps) {
           <strong className="text-rose-500 dark:text-teal-500 max-md:text-sm">{children}</strong>
         ),
         blockquote: ({ children }) => (
-          <blockquote className="bg-neutral-50 dark:bg-neutral-900 px-7 py-2 border-l-sky-500 rounded-md not-italic font-light">
+          <blockquote className="bg-neutral-50 dark:bg-neutral-900 px-7 py-2 border-l-sky-500 rounded-md not-italic">
             {children}
           </blockquote>
         ),
         p: ({ children }) => (
-          <p className="dark:text-neutral-200 max-md:text-sm whitespace-pre-wrap font-light before:hidden">
-            {children}
-          </p>
+          <p className="dark:text-neutral-200 max-md:text-sm whitespace-pre-wrap before:hidden">{children}</p>
         ),
         a: ({ children }) => <a className="text-neutral-500 max-md:text-sm cursor-pointer break-words">{children}</a>,
         code(props) {

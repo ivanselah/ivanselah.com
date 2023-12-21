@@ -5,15 +5,17 @@ import { homeBody } from '@/config';
 import { FaGithub } from 'react-icons/fa';
 import { useCheckPathname } from '@/hooks/useCheckPathname';
 import { CommonUtils } from '@/utils/common';
+import PostScrollProgressBar from '@/components/posts/PostScrollProgressBar';
 
 export default function Header() {
-  const { isMatch } = useCheckPathname({ targetPathname: '/' });
+  const { isMatch: isRootPathMatch } = useCheckPathname({ targetPathname: '/' });
+  const { isMatch: isPostPathMatch } = useCheckPathname({ targetPathname: 'posts' });
 
   return (
     <header
       className={CommonUtils.combineClassName(
         'fixed top-0 left-0 right-0 z-10',
-        isMatch ? 'bg-transparent' : 'bg-neutral-100/[0.8] shadow-sm dark:bg-neutral-900/[0.8]',
+        isRootPathMatch ? 'bg-transparent' : 'bg-neutral-100/[0.9] shadow-sm dark:bg-neutral-900/[0.9]',
       )}
     >
       <div className="max-w-[1300px] mx-auto flex justify-between items-center p-4 max-[360px]:p-2">
@@ -31,6 +33,7 @@ export default function Header() {
           </Link>
         </nav>
       </div>
+      <PostScrollProgressBar />
     </header>
   );
 }
