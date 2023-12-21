@@ -5,11 +5,9 @@ import { homeBody } from '@/config';
 import { FaGithub } from 'react-icons/fa';
 import { useCheckPathname } from '@/hooks/useCheckPathname';
 import { CommonUtils } from '@/utils/common';
-import PostScrollProgressBar from '@/components/posts/PostScrollProgressBar';
 
 export default function Header() {
   const { isMatch: isRootPathMatch } = useCheckPathname({ targetPathname: '/' });
-  const { isMatch: isPostPathMatch } = useCheckPathname({ targetPathname: 'posts' });
 
   return (
     <header
@@ -33,7 +31,6 @@ export default function Header() {
           </Link>
         </nav>
       </div>
-      <PostScrollProgressBar />
     </header>
   );
 }

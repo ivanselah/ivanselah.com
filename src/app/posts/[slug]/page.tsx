@@ -5,6 +5,7 @@ import PreNextPostCard from '@/components/posts/PreNextPostCard';
 import LikeShareIsland from '@/components/posts/LikeShareIsland';
 import PostImage from '@/components/posts/PostImage';
 import PostComment from '@/components/posts/PostComment';
+import PostScrollProgressBar from '@/components/posts/PostScrollProgressBar';
 
 type PostPageProps = {
   params: {
@@ -25,6 +26,7 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
 
   return (
     <>
+      <PostScrollProgressBar />
       <LikeShareIsland slug={slug} />
       <article className="max-w-[850px] mx-auto m-4">
         <PostImage path={path} title={title} />
