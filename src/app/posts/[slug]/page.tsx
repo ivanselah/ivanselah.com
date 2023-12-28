@@ -6,6 +6,7 @@ import LikeShareIsland from '@/components/posts/LikeShareIsland';
 import PostImage from '@/components/posts/PostImage';
 import PostComment from '@/components/posts/PostComment';
 import PostScrollProgressBar from '@/components/posts/PostScrollProgressBar';
+import PostArrowUp from '@/components/posts/PostArrowUp';
 
 type PostPageProps = {
   params: {
@@ -34,6 +35,7 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
           <h1 className="max-md:text-2xl text-4xl font-bold">{title}</h1>
           <div className="w-60 border-2 border-sky-600 mt-4 mb-8" />
           <MarkdownViewer content={content} />
+          <PostArrowUp />
         </section>
         <section className="w-full h-32 py-7 max-md:flex-col max-md:px-4 md:relative mt-7 border-t border-neutral-300 dark:border-neutral-100">
           {prevPost && <PreNextPostCard post={prevPost} type="prev" />}

@@ -15,7 +15,7 @@ type MarkdownViewerProps = {
 export default function MarkdownViewer({ content }: MarkdownViewerProps) {
   return (
     <ReactMarkdown
-      className="prose max-w-none dark:text-neutral-100"
+      className="content prose max-w-none dark:text-neutral-100"
       remarkPlugins={[remarkGfm]}
       components={{
         h1: ({ children }) => (

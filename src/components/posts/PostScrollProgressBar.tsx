@@ -15,6 +15,8 @@ export default function PostScrollProgressBar() {
     <motion.div
       className="fixed top-[60px] max-md:top-[56px] max-[360px]:top-[40px] left-0 right-0 h-1 bg-teal-300 origin-left"
       style={{ scaleX }}
+      initial="hidden"
+      whileInView="visible"
     />
   );
 }
