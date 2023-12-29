@@ -9,6 +9,16 @@ import { useCheckPathname } from '@/hooks/useCheckPathname';
 import Header from '@/components/Header';
 import { usePathname } from 'next/navigation';
 
+function setThemeMode() {
+  if (typeof window !== 'undefined') {
+    const themeMode = window.localStorage.getItem('theme') ?? 'light';
+    const root = document.documentElement;
+    root.style.setProperty('color-scheme', themeMode);
+  }
+}
+
+setThemeMode();
+
 type Props = {
   children: React.ReactNode;
 };
