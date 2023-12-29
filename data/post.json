@@ -5,6 +5,7 @@
     "date": "2023년 11월 27일",
     "tags": ["story", "review"],
     "path": "my-story-2023-review",
+    "hasImage": true,
     "isPublic": true
   },
   {
@@ -13,6 +14,7 @@
     "date": "2023년 11월 29일",
     "tags": ["DOM", "Event loop"],
     "path": "dom-understanding",
+    "hasImage": true,
     "isPublic": true
   },
   {
@@ -21,6 +23,7 @@
     "date": "2023년 12월 18일",
     "tags": ["TLS", "tsc", "VSCode"],
     "path": "typescript-type-check",
+    "hasImage": false,
     "isPublic": true
   }
 ]

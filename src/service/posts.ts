@@ -8,6 +8,7 @@ export type Post = {
   date: Date;
   tags: string[];
   path: string;
+  hasImage: boolean;
   isPublic: boolean;
 };
 

@@ -23,15 +23,15 @@ export async function generateMetadata({ params: { slug } }: PostPageProps) {
 }
 
 export default async function PostPage({ params: { slug } }: PostPageProps) {
-  const { content, path, title, prevPost, nextPost } = await getPostData(slug);
+  const { content, path, title, hasImage, prevPost, nextPost } = await getPostData(slug);
 
   return (
     <>
       <PostScrollProgressBar />
       <LikeShareIsland slug={slug} />
       <article className="max-w-[850px] mx-auto m-4">
-        <PostImage path={path} title={title} />
-        <section className="flex flex-col p-4">
+        <PostImage path={path} title={title} hasImage={hasImage} />
+        <section className="flex flex-col p-4 mt-10">
           <h1 className="max-md:text-2xl text-4xl font-bold">{title}</h1>
           <div className="w-60 border-2 border-sky-600 mt-4 mb-8" />
           <MarkdownViewer content={content} />
