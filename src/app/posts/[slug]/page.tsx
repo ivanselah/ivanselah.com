@@ -46,10 +46,3 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
     </>
   );
 }
-
-export async function generateStaticParams() {
-  const posts = await getAllPublicPosts();
-  return posts.map(post => ({
-    slug: post.path,
-  }));
-}

@@ -1,7 +1,7 @@
 'use client';
-import { useEffect } from 'react';
+import { useLayoutEffect, useEffect } from 'react';
 
-import { ThemeProvider } from 'next-themes';
+import { ThemeProvider, useTheme } from 'next-themes';
 import { homeBody } from '@/config';
 
 import Footer from '@/components/Footer';
@@ -12,7 +12,16 @@ type Props = {
 };
 
 export default function RootProviders({ children }: Props) {
+  const { theme, setTheme } = useTheme();
   const { isMatch } = useCheckPathname({ targetPathname: '/' });
+
+  useLayoutEffect(() => {
+    const previousThemeMode = window.localStorage.getItem('theme');
+    const themeMode = previousThemeMode ?? 'light';
+    window.localStorage.setItem('theme', themeMode);
+    console.log(themeMode);
+    setTheme(themeMode);
+  }, [theme, setTheme]);
 
   useEffect(() => {
     const htmlElement = document.querySelector('html');
@@ -40,7 +49,7 @@ export default function RootProviders({ children }: Props) {
       className="bgStyle flex flex-col max-w-screen-xl mx-auto bg-transparent"
     >
       <div id="stars" style={isMatch ? undefined : { display: 'none' }} />
-      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
         {children}
         {!isMatch && <Footer />}
       </ThemeProvider>
