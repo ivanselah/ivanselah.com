@@ -1,27 +1,25 @@
 'use client';
 import { useLayoutEffect, useEffect } from 'react';
 
-import { ThemeProvider, useTheme } from 'next-themes';
+import { ThemeProvider } from 'next-themes';
 import { homeBody } from '@/config';
 
 import Footer from '@/components/Footer';
 import { useCheckPathname } from '@/hooks/useCheckPathname';
+import Header from '@/components/Header';
+import { usePathname } from 'next/navigation';
 
 type Props = {
   children: React.ReactNode;
 };
 
 export default function RootProviders({ children }: Props) {
-  const { theme, setTheme } = useTheme();
+  const pathname = usePathname();
   const { isMatch } = useCheckPathname({ targetPathname: '/' });
 
   useLayoutEffect(() => {
-    const previousThemeMode = window.localStorage.getItem('theme');
-    const themeMode = previousThemeMode ?? 'light';
-    window.localStorage.setItem('theme', themeMode);
-    console.log(themeMode);
-    setTheme(themeMode);
-  }, [theme, setTheme]);
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     const htmlElement = document.querySelector('html');
@@ -49,8 +47,9 @@ export default function RootProviders({ children }: Props) {
       className="bgStyle flex flex-col max-w-screen-xl mx-auto bg-transparent"
     >
       <div id="stars" style={isMatch ? undefined : { display: 'none' }} />
-      <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
-        {children}
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+        <Header />
+        <main className="w-full mx-auto pt-16 md:pt-24 lg:pt-32 grow">{children}</main>
         {!isMatch && <Footer />}
       </ThemeProvider>
     </body>
