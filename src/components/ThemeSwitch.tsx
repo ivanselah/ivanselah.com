@@ -8,11 +8,6 @@ import { CommonUtils } from '@/utils/common';
 export default function ThemeSwitch() {
   const { theme, setTheme } = useTheme();
 
-  useLayoutEffect(() => {
-    const currentTheme = CommonUtils.getLocalStorage('theme') ?? 'light';
-    setTheme(currentTheme);
-  }, [setTheme]);
-
   const onThemeChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const currentTheme = event.target.value;
     if (CommonUtils.getLocalStorage('theme') === currentTheme) {
