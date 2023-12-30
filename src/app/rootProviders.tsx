@@ -9,16 +9,6 @@ import { useCheckPathname } from '@/hooks/useCheckPathname';
 import Header from '@/components/Header';
 import { usePathname } from 'next/navigation';
 
-function setThemeMode() {
-  if (typeof window !== 'undefined') {
-    const themeMode = window.localStorage.getItem('theme') ?? 'light';
-    const root = document.documentElement;
-    root.style.setProperty('color-scheme', themeMode);
-  }
-}
-
-setThemeMode();
-
 type Props = {
   children: React.ReactNode;
 };
@@ -54,11 +44,11 @@ export default function RootProviders({ children }: Props) {
             }
           : undefined
       }
-      className="bgStyle flex flex-col max-w-screen-xl mx-auto bg-transparent"
+      className="bgStyle flex flex-col max-w-screen-xl mx-auto"
     >
       <div id="stars" style={isMatch ? undefined : { display: 'none' }} />
-      <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-        <Header />
+      <Header />
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
         <main className="w-full mx-auto pt-16 md:pt-24 lg:pt-32 grow">{children}</main>
         {!isMatch && <Footer />}
       </ThemeProvider>

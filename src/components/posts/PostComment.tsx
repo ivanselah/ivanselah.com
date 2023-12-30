@@ -14,22 +14,29 @@ export default function PostComment() {
   const pathname = usePathname();
   const [isBothPreAndNextButton, setIsBothPreAndNextButton] = useState<boolean>(true);
   const commentsSectionRef = useRef<HTMLElement>(null);
+  const scriptElChild = useRef<HTMLScriptElement>();
   const { isMatch } = useCheckPathname({ targetPathname: 'posts' });
 
   useLayoutEffect(() => {
     const existingScript = commentsSectionRef.current?.querySelector(UTTERANCES) as HTMLIFrameElement;
     if (existingScript) {
+      const isAbnomalBody = existingScript.querySelector('body')?.childNodes.length === 0;
+      if (isAbnomalBody && scriptElChild.current) {
+        commentsSectionRef.current?.removeChild(scriptElChild.current);
+      }
       existingScript.contentWindow?.postMessage({ type: 'set-theme', theme: utterancesTheme }, 'https://utteranc.es/');
       return;
     }
     const scriptEl = document.createElement('script');
-    scriptEl.async = true;
+    scriptEl.async = false;
     scriptEl.src = 'https://utteranc.es/client.js';
+    scriptEl.setAttribute('class', 'comment');
     scriptEl.setAttribute('repo', 'ivanselah/ivanselah.com');
     scriptEl.setAttribute('issue-term', 'pathname');
     scriptEl.setAttribute('theme', utterancesTheme);
     scriptEl.setAttribute('crossorigin', 'anonymous');
     commentsSectionRef.current?.appendChild(scriptEl);
+    scriptElChild.current = scriptEl;
   }, [utterancesTheme]);
 
   useEffect(() => {

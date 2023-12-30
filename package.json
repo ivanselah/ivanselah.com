@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "bs": "next build && next start",
     "start": "next start -p 3060",
     "prepare": "husky install",
     "lint": "next lint"
