@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { usePathname } from 'next/navigation';
 import { useCheckPathname } from '@/hooks/useCheckPathname';
@@ -17,25 +17,21 @@ export default function PostComment() {
   const scriptElChild = useRef<HTMLScriptElement>();
   const { isMatch } = useCheckPathname({ targetPathname: 'posts' });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const existingScript = commentsSectionRef.current?.querySelector(UTTERANCES) as HTMLIFrameElement;
     if (existingScript) {
-      const isAbnomalBody = existingScript.querySelector('body')?.childNodes.length === 0;
-      if (isAbnomalBody && scriptElChild.current) {
-        commentsSectionRef.current?.removeChild(scriptElChild.current);
-      }
       existingScript.contentWindow?.postMessage({ type: 'set-theme', theme: utterancesTheme }, 'https://utteranc.es/');
       return;
     }
     const scriptEl = document.createElement('script');
-    scriptEl.async = false;
+    scriptEl.async = true;
     scriptEl.src = 'https://utteranc.es/client.js';
     scriptEl.setAttribute('class', 'comment');
     scriptEl.setAttribute('repo', 'ivanselah/ivanselah.com');
     scriptEl.setAttribute('issue-term', 'pathname');
     scriptEl.setAttribute('theme', utterancesTheme);
     scriptEl.setAttribute('crossorigin', 'anonymous');
-    commentsSectionRef.current?.appendChild(scriptEl);
+    commentsSectionRef.current?.replaceChildren(scriptEl);
     scriptElChild.current = scriptEl;
   }, [utterancesTheme]);
 
