@@ -44,7 +44,7 @@ export default function RootProviders({ children }: Props) {
             }
           : undefined
       }
-      className="bgStyle flex flex-col max-w-screen-xl mx-auto"
+      className="bgStyle flex flex-col max-w-screen-xl mx-auto bg-transparent"
     >
       <div id="stars" style={isMatch ? undefined : { display: 'none' }} />
       <Header />

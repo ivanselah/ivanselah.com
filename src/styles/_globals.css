@@ -2,19 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: white;
-    --foreground: black;
-  }
-  .dark {
-    --background: black;
-    --foreground: white;
-  }
-}
-
 html,
 body {
   height: 100vh;
-  background-color: transparent;
 }
