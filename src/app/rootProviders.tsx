@@ -46,9 +46,9 @@ export default function RootProviders({ children }: Props) {
       }
       className="bgStyle flex flex-col max-w-screen-xl mx-auto bg-transparent"
     >
-      <div id="stars" style={isMatch ? undefined : { display: 'none' }} />
-      <Header />
-      <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
+      <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+        <div id="stars" style={isMatch ? undefined : { display: 'none' }} />
+        <Header />
         <main className="w-full mx-auto pt-16 md:pt-24 lg:pt-32 grow">{children}</main>
         {!isMatch && <Footer />}
       </ThemeProvider>

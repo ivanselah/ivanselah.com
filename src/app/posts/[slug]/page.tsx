@@ -1,12 +1,12 @@
 import React from 'react';
-import { getPostData } from '@/service/posts';
+import { getAllPublicPosts, getPostData } from '@/service/posts';
 import MarkdownViewer from '@/components/posts/MarkdownViewer';
 import PreNextPostCard from '@/components/posts/PreNextPostCard';
 import LikeShareIsland from '@/components/posts/LikeShareIsland';
 import PostImage from '@/components/posts/PostImage';
 import PostComment from '@/components/posts/PostComment';
-import PostScrollProgressBar from '@/components/posts/PostScrollProgressBar';
 import PostArrowUp from '@/components/posts/PostArrowUp';
+import PostScrollProgressBar from '@/components/posts/PostScrollProgressBar';
 
 type PostPageProps = {
   params: {
@@ -45,4 +45,11 @@ export default async function PostPage({ params: { slug } }: PostPageProps) {
       <PostComment />
     </>
   );
+}
+
+export async function generateStaticParams() {
+  const posts = await getAllPublicPosts();
+  return posts.map(post => ({
+    slug: post.path,
+  }));
 }

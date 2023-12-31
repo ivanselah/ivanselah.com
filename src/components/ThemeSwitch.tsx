@@ -14,11 +14,6 @@ export default function ThemeSwitch() {
   }, []);
 
   const onThemeChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    const currentTheme = event.target.value;
-    if (CommonUtils.getLocalStorage('theme') === currentTheme) {
-      return;
-    }
-    CommonUtils.setLocalStorage('theme', currentTheme);
     setTheme(event.target.value);
   };
 
