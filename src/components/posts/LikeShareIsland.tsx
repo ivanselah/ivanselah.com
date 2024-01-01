@@ -4,7 +4,7 @@ import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { usePostLikeHeartStore } from '@/store/store';
 import { CommonUtils } from '@/utils/common';
 import { usePathname } from 'next/navigation';
-import { useEffect } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { GoHeartFill as Like, GoShare } from 'react-icons/go';
 
 type LikeShareIslandProps = {
@@ -16,39 +16,46 @@ const LIKE_SHARE_INCON_CALSS =
 
 export default function LikeShareIsland({ slug }: LikeShareIslandProps) {
   const pathname = usePathname();
+  const [isMounted, setIsMounted] = useState<boolean>(false);
   const { postLikeHeart, setTotalPostLikeCount } = usePostLikeHeartStore();
-  const { isCopied, copyToClipboard } = useCopyToClipboard();
+  const { isPostLike, totalPostLikeCount } = postLikeHeart;
+  const { copyToClipboard } = useCopyToClipboard();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // TODO from DB, slug
     // Post 별 DB로 부터 가져와서 store 에 설정 필요
+    setIsMounted(true);
   }, []);
 
   const onLikeIconClick = () => {
-    setTotalPostLikeCount(postLikeHeart.isPostLike ? -1 : 1);
+    setTotalPostLikeCount(isPostLike ? -1 : 1);
   };
 
   const onShareIconClick = () => {
     copyToClipboard(origin + pathname);
   };
 
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <div
       className={CommonUtils.combineClassName(
         'select-none fixed flex flex-col items-center justify-around top-36 translate-x-24 bg-neutral-100 dark:bg-neutral-800 h-36 rounded-3xl p-3',
-        'max-[1200px]:hidden',
+        'max-[1200px]:hidden z-10',
       )}
     >
       <div
         className={CommonUtils.combineClassName(
           LIKE_SHARE_INCON_CALSS,
-          postLikeHeart.isPostLike ? 'text-rose-500' : 'text-neutral-500',
+          isPostLike ? 'text-rose-500' : 'text-neutral-500',
         )}
         onClick={onLikeIconClick}
       >
         <Like />
       </div>
-      <span className="-mt-2 text-sm">{postLikeHeart.totalPostLikeCount}</span>
+      <span className="-mt-2 text-sm">{totalPostLikeCount}</span>
       <div className={LIKE_SHARE_INCON_CALSS} onClick={onShareIconClick}>
         <GoShare />
       </div>
