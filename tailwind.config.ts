@@ -16,6 +16,22 @@ const config: Config = {
       colors: {
         'custom-brand': '#363636',
       },
+      keyframes: {
+        themeLightIconRotate: {
+          '0%': { transform: 'rotate(-45deg)' },
+          '25%': { transform: 'rotate(-35deg)' },
+          '50%': { transform: 'rotate(-25deg)' },
+          '75%': { transform: 'rotate(-15deg)' },
+          '100%': { transform: 'rotate(0deg)' },
+        },
+        themeDarkIconRotate: {
+          '0%': { transform: 'rotate(-45deg)' },
+          '25%': { transform: 'rotate(-35deg)' },
+          '50%': { transform: 'rotate(-25deg)' },
+          '75%': { transform: 'rotate(-15deg)' },
+          '100%': { transform: 'rotate(0deg)' },
+        },
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],
