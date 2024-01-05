@@ -36,7 +36,7 @@ export default function ThemeSwitch() {
     <>
       <div
         className={CommonUtils.combineClassName(
-          'hidden lg:block cursor-pointer fixed bottom-44 p-2 rounded-full hover:shadow-inner',
+          'hidden lg:block cursor-pointer fixed top-20 p-2 rounded-full hover:shadow-inner',
           isDarkMode ? 'hover:shadow-yellow-300' : 'hover:shadow-red-600',
           'transition-shadow',
         )}

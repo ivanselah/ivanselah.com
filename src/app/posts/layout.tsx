@@ -5,5 +5,5 @@ type PostslayoutProps = {
 };
 
 export default function Postslayout({ children }: PostslayoutProps) {
-  return <section>{children}</section>;
+  return <>{children}</>;
 }

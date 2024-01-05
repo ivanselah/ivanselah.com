@@ -11,7 +11,7 @@ export default function PostsTags({ tags: originTags, selectedTag, onClick }: Po
   const totalTagsCount = removeDuplicatedTags.length - 1;
 
   return (
-    <section className="min-w-[100%] md:min-w-[20%] text-center p-4">
+    <section className="sticky top-32 max-md:top-10 h-fit backdrop-blur-sm min-w-[100%] md:min-w-[20%] text-center p-4">
       <h2 className="text-lg max-md:text-sm text-left font-bold border-b border-gray-400 pb-2 mb-3">태그 목록</h2>
       <ul className="flex flex-row md:flex-col max-md:overflow-x-scroll max-md:mb-1 max-md:pb-4">
         {removeDuplicatedTags.map((tag, index) => {

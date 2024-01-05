@@ -30,7 +30,7 @@ export default function RootProviders({ children }: Props) {
       htmlElement.style.overflow = 'hidden';
       return;
     }
-    htmlElement.style.overflow = 'auto';
+    htmlElement.style.overflow = 'visible';
   }, [isMatch]);
 
   return (
